@@ -6,13 +6,6 @@ class window.Hand extends Backbone.Collection
   hit: ->
     @add(@deck.pop())
     if @minScore() > 21
-      # if @isDealer
-      #   alert 'Dealer busts. You win!'
-      #   @trigger 'gameOver'
-      #   # window.App.restart()
-      # else
-      #   alert 'You busted! You lose.'
-      #   @trigger 'gameOver'
       if not @isDealer
         alert('You busted! You lose.')
         @trigger 'gameOver'
@@ -33,4 +26,3 @@ class window.Hand extends Backbone.Collection
 
   bestScore: ->
     if @scores()[1] <= 21 then @scores()[1] else @scores()[0]
-

@@ -11,9 +11,6 @@ class window.App extends Backbone.Model
     @get('dealerHand').on 'gameOver', =>
       console.log "gameOver triggered"
       @restart()
-    # this.on('gameOver', function() {
-    #   console.log('Hey, the gameOver event')
-    # })
 
   restart: ->
     @set 'deck', deck = new Deck()
@@ -25,13 +22,10 @@ class window.App extends Backbone.Model
     @get('dealerHand').on 'gameOver', =>
       console.log "gameOver triggered"
       @restart()
-  # events
-  #   gameOver: on 'gameover', restart game
 
   stand: ->    
     @get('dealerHand').at(0).flip()
 
-    
     while @get('dealerHand').bestScore() < 17
       @get('dealerHand').hit()
 
@@ -45,6 +39,5 @@ class window.App extends Backbone.Model
       alert "Dealer wins"
     else if playerScore == dealerScore
       alert "It's a push"
-    else 
-      alert "Something is wrong"
+
     @restart()
