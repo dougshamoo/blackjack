@@ -12,9 +12,4 @@ class window.HandView extends Backbone.View
     @$el.html @template @collection
     @$el.append @collection.map (card) ->
       new CardView(model: card).$el
-    if @collection.hasAce()
-      # ...
-    
-    string = @collection.scores()[0] + ' or ' + @collection.scores()[1]
-    @$('.score').text string
-    # @$('.score').text @collection.scores()[0]
+    @$('.score').text @collection.bestScore()
