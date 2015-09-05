@@ -5,6 +5,22 @@ class window.Hand extends Backbone.Collection
 
   hit: ->
     @add(@deck.pop())
+    if @minScore() > 21
+      alert "You Lose!"
+  
+  # stand: ->    
+  #   # (optional) hit dealer until (player score < dealer score < 22)
+  #   # decide player score
+  #   playerScore = @scores()[1]
+  #   playerScore = if @scores()[1] <= 21 then @scores()[1] else @scores()[0];
+    
+  #   console.log playerScore
+  #   # console.log 'hello'
+  #   # alert playerScore
+  #   # decide dealer score
+  #   # compare scores
+  #   # alert winner
+    
 
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1
